@@ -4,10 +4,10 @@ import { Particle } from "./asset/js/particle.js";
 import { Ball } from "./asset/js/fireworks/ball.js";
 import { Explode } from "./asset/js/fireworks/explode.js";
 
-const mobile = mobileChk();
-
 class App {
   constructor() {
+    const mobile = mobileChk();
+
     const btn = document.querySelector('button');
     buttonStyling(btn);
 

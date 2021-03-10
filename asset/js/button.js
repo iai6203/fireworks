@@ -1,4 +1,8 @@
+import {mobileChk} from "./util";
+
 export const buttonStyling = btn => {
+  const mobile = mobileChk();
+
   const turbulence = document.querySelector('feTurbulence');
 
   let verticalFrequency = .00001, horizontalFrequency = .00001;
