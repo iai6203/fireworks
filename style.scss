@@ -1,0 +1,85 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  background-color: #000;
+}
+
+svg {
+  display: none;
+}
+
+h2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  color: #FFF;
+  font-size: 4rem;
+  text-align: center;
+
+  transform: translate(-50%, -50%);
+}
+
+button {
+  cursor: pointer;
+
+  position: absolute;
+  top: 60%;
+  left: 50%;
+
+  width: 150px;
+  height: 60px;
+
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  border: none;
+  background: none;
+  outline: none;
+
+  transform: translate(-50%, -50%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #FFF;
+
+    filter: url('#wave');
+
+    z-index: -1;
+  }
+
+  &:hover::before {
+    animation: squish .5s;
+  }
+}
+@keyframes squish {
+  0% { transform: scale(1) }
+  20% { transform: scale(.9) }
+  60% { transform: scale(1.1) }
+  100% { transform: scale(1) }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -100;
+}
