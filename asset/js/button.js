@@ -1,3 +1,5 @@
+import { mobileChk } from "./util.js";
+
 export const buttonStyling = btn => {
   const turbulence = document.querySelector('feTurbulence');
 
@@ -7,6 +9,7 @@ export const buttonStyling = btn => {
   const buttonHandler = ({ type }) => {
     switch (type) {
       case 'mouseover':
+      case 'touchstart':
         for (let i = 0; i < step; i++) {
           setTimeout(() => {
             verticalFrequency += .002;
@@ -16,6 +19,7 @@ export const buttonStyling = btn => {
         }
         break;
       case 'mouseout':
+      case 'touchend':
         for (let i = 0; i < step; i++) {
           setTimeout(() => {
             verticalFrequency -= .002;
@@ -29,6 +33,12 @@ export const buttonStyling = btn => {
     }
   }
 
-  btn.addEventListener('mouseover', buttonHandler, false);
-  btn.addEventListener('mouseout', buttonHandler, false);
+  if (mobileChk()) {
+    btn.addEventListener('touchstart', buttonHandler, false);
+    btn.addEventListener('touchend', buttonHandler, false);
+  }
+  else if (!mobileChk()) {
+    btn.addEventListener('mouseover', buttonHandler, false);
+    btn.addEventListener('mouseout', buttonHandler, false);
+  }
 }

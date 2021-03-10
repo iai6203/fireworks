@@ -1,4 +1,4 @@
-import { relMousePos, getDistance } from './asset/js/util.js';
+import { mobileChk, relMousePos, getDistance } from './asset/js/util.js';
 import { buttonStyling } from "./asset/js/button.js";
 import { Particle } from "./asset/js/particle.js";
 import { Ball } from "./asset/js/fireworks/ball.js";
