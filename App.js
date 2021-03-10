@@ -4,6 +4,8 @@ import { Particle } from "./asset/js/particle.js";
 import { Ball } from "./asset/js/fireworks/ball.js";
 import { Explode } from "./asset/js/fireworks/explode.js";
 
+const mobile = mobileChk();
+
 class App {
   constructor() {
     const btn = document.querySelector('button');
@@ -22,10 +24,21 @@ class App {
     // particles
     this.particles = [];
     const moveHandler = evt => {
-      const { x, y } = relMousePos(this.canvas, evt);
+      let { x, y } = relMousePos(this.canvas, evt);
+
+      if (mobile) {
+        x = evt.targetTouches[0].clientX;
+        y = evt.targetTouches[0].clientY;
+      }
+
       this.particles.push(new Particle(x, y));
     }
-    window.addEventListener('mousemove', moveHandler, false);
+    if (mobile) {
+      window.addEventListener('touchmove', moveHandler, false);
+    }
+    else if (!mobile) {
+      window.addEventListener('mousemove', moveHandler, false);
+    }
 
     // fireworks
     this.fireworks = {
