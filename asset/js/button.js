@@ -1,4 +1,4 @@
-import {mobileChk} from "./util";
+import {mobileChk} from "./util.js";
 
 export const buttonStyling = btn => {
   const mobile = mobileChk();
