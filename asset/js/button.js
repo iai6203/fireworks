@@ -1,5 +1,3 @@
-import { mobileChk } from "./util.js";
-
 export const buttonStyling = btn => {
   const turbulence = document.querySelector('feTurbulence');
 
@@ -33,11 +31,11 @@ export const buttonStyling = btn => {
     }
   }
 
-  if (mobileChk()) {
+  if (mobile) {
     btn.addEventListener('touchstart', buttonHandler, false);
     btn.addEventListener('touchend', buttonHandler, false);
   }
-  else if (!mobileChk()) {
+  else if (!mobile) {
     btn.addEventListener('mouseover', buttonHandler, false);
     btn.addEventListener('mouseout', buttonHandler, false);
   }
